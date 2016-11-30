@@ -1,0 +1,137 @@
+fileFormatVersion: 2
+guid: 93e12d823882353489a1766bf0c2fd1e
+timeCreated: 1479733342
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WizardIdle_0
+    21300002: WizardIdle_1
+    21300004: WizardIdle_2
+    21300006: WizardIdle_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WizardIdle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 35}
+        - {x: -26, y: 34}
+        - {x: -26, y: -2}
+        - {x: -13, y: -34}
+        - {x: -11, y: -35}
+        - {x: 21, y: -35}
+        - {x: 25, y: -28}
+        - {x: 25, y: 24}
+        - {x: 20, y: 35}
+    - name: WizardIdle_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 35}
+        - {x: -21, y: 35}
+        - {x: -21, y: -20}
+        - {x: -9, y: -35}
+        - {x: 22, y: -35}
+        - {x: 28, y: -19}
+        - {x: 28, y: 17}
+        - {x: 25, y: 26}
+    - name: WizardIdle_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 71
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21.5, y: 35}
+        - {x: -21.5, y: -18}
+        - {x: -18.5, y: -35}
+        - {x: 17.5, y: -35}
+        - {x: 27.5, y: -13}
+        - {x: 27.5, y: 18}
+        - {x: 20.5, y: 35}
+    - name: WizardIdle_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 0
+        width: 75
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 35}
+        - {x: -26.5, y: 33}
+        - {x: -26.5, y: -6}
+        - {x: -18.5, y: -35}
+        - {x: 18.5, y: -35}
+        - {x: 24.5, y: -20}
+        - {x: 24.5, y: 32}
+        - {x: 16.5, y: 35}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
