@@ -316,6 +316,7 @@ MonoBehaviour:
   _isHit: 0
   _isStunt: 0
   _isDead: 0
+  _catSounds: []
 --- !u!114 &11469314
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,6 +14,8 @@ public class HitByPlayer : MonoBehaviour
 
     private Color _defaultColor;
 
+    public AudioClip[] _catSounds;
+
     void Awake()
     {
         _stamina = 2;
@@ -58,22 +60,30 @@ public class HitByPlayer : MonoBehaviour
 
     public bool hasBeenHit()
     {
-        if (_isHit != true && _stamina > 0)
+        if (_isHit != true && _stamina > 0) // the player is hit
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
+            gameObject.GetComponent<AudioSource>().clip = _catSounds[0];
             gameObject.GetComponent<AudioSource>().Play();
             _isHit = true;
             _stamina--;
             return (true);
         }
-        if (_isHit != true && _stamina == 0 && !_isStunt)
+
+        if (_isHit != true && _stamina == 0 && !_isStunt) // the player is stunt
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
+            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            gameObject.GetComponent<AudioSource>().clip = _catSounds[0];
             gameObject.GetComponent<AudioSource>().Play();
             _isStunt = true;
-//            GameObject.GetComponent<Rigidbody2D>().velocity.y = 0;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             return (true);
         }
         return (false);
+    }
+
+    public bool staminaRecovering()
+    {
+        return (true);
     }
 }
