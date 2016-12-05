@@ -615,6 +615,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.001
   lnmodifier: 0.0125
+  smooth: 0.25
+  yoffset: 5
+  ydistance: 7
 --- !u!1 &2106018273
 GameObject:
   m_ObjectHideFlags: 0

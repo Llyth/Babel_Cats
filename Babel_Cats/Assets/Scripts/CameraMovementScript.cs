@@ -79,9 +79,15 @@ public class CameraMovementScript : MonoBehaviour
     }
 
     private bool move;
-    private GameObject[] players;
     public float speed;
     public float lnmodifier;
+
+    private GameObject[] players;
+    private float y;
+    private Vector3 target;
+    public float smooth;
+    public int yoffset;
+    public int ydistance;
     // Update is called once per frame
     // Moves the camera on y axis, set speed variable in Unity to modify speed
 
@@ -103,8 +109,26 @@ public class CameraMovementScript : MonoBehaviour
     {
         if (move == true)
         {
-            float f = Mathf.Log(Time.timeSinceLevelLoad);
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed + (f > 0 ? f * lnmodifier : 0), transform.position.z);
+            if ((players = GameObject.FindGameObjectsWithTag("Player")) != null)
+            {
+                y = 0;
+                foreach (GameObject player in players)
+                {
+                    if (y < player.transform.position.y)
+                        y = player.transform.position.y;
+                }
+                if (y > transform.position.y + ydistance)
+                {
+                    target = transform.position;
+                    target.y = y + yoffset;
+                    transform.position = Vector3.Lerp(transform.position, target, smooth * Time.deltaTime);
+                }
+                else
+                {
+                    float f = Mathf.Log(Time.timeSinceLevelLoad);
+                    transform.position = new Vector3(transform.position.x, transform.position.y + speed + (f > 0 ? f * lnmodifier : 0), transform.position.z);
+                }
+            }
         }
     }
 }
