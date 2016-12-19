@@ -342,6 +342,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 408952b402d99fa498b2713d9662a106, type: 3}
   - {fileID: 21300000, guid: 93e12d823882353489a1766bf0c2fd1e, type: 3}
   - {fileID: 21300000, guid: a5bb179b32ffad24f900ae65e9ec715f, type: 3}
+  _catsWeaponSprite:
+  - {fileID: 21300000, guid: 914f8bf4627e9d04198e83feec21c195, type: 3}
+  - {fileID: 21300000, guid: b9daf27831c6d634dad53f9dbb39c1ba, type: 3}
+  - {fileID: 21300000, guid: 0f48a179314154d44a8fff46de93bd19, type: 3}
+  - {fileID: 21300000, guid: 854566717e1f93b478c79e7fe199de83, type: 3}
   _hudSprite:
   - {fileID: 21300000, guid: 1ace5c6450d949c459d82b36fc19f71b, type: 3}
   - {fileID: 21300000, guid: 9ebfdedc5c8fefc4180f7cd8eb3075bc, type: 3}
@@ -1331,6 +1336,7 @@ MonoBehaviour:
   _nbPlayerAvailable: 0
   _characterSprite: []
   _characterAnimationController: []
+  _winnerName: 
 --- !u!1 &1998692517
 GameObject:
   m_ObjectHideFlags: 0

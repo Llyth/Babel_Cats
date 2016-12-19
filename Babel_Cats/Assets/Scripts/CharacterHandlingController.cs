@@ -5,9 +5,7 @@ using InControl;
 [RequireComponent(typeof(CharacterActionControl))]
 public class CharacterHandlingController : MonoBehaviour
 {
-    private enum ClassCharacter { JudoBoy = 0, Ninja = 1, Wizard = 2, Punk = 3}
-
-    private ClassCharacter _currentClassCharacter;
+    public CharacterClass _charactersClass;
 
     private bool _isPaused;
     public MyCharacterActions _characterActions;
@@ -20,11 +18,9 @@ public class CharacterHandlingController : MonoBehaviour
     private bool _jump;
     private bool _dash;
     public bool _attack;
-    public float _cooldownAttack;
 
     private void Awake()
     {
-        _cooldownAttack = 1.5f;
         _hitByPlayer = GetComponent<HitByPlayer>();
 
         _character = GetComponent<CharacterActionControl>();
@@ -37,18 +33,20 @@ public class CharacterHandlingController : MonoBehaviour
     void Update()
     {
         controllerControls();
-
-        if (_cooldownAttack < 0)
+        if (_isControllerAttach)
         {
-            _cooldownAttack = 1.5f;
-            _attack = false;
-            if (transform.GetChild(2).GetComponent<UseWeapon>()._isWeaponAttach)
-                transform.GetChild(2).GetComponent<UseWeapon>().GetComponent<Collider2D>().enabled = false;
-        }
-        else
-        {
-            if (_cooldownAttack > 0)
-                _cooldownAttack -= Time.deltaTime;
+            if (_charactersClass.CooldownAttack < 0)
+            {
+                _charactersClass.CooldownAttack = _charactersClass.MaxCooldownAttack;
+                _attack = false;
+                if (transform.GetChild(2).GetComponent<UseWeapon>()._isWeaponAttach)
+                    transform.GetChild(2).GetComponent<UseWeapon>().GetComponent<Collider2D>().enabled = false;
+            }
+            else
+            {
+                if (_charactersClass.CooldownAttack > 0)
+                    _charactersClass.CooldownAttack -= Time.deltaTime;
+            }
         }
     }
 
@@ -63,15 +61,6 @@ public class CharacterHandlingController : MonoBehaviour
         }
     }
 
-/*    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Player")
-        {
-            if (_attack && _cooldownAttack > 0)
-                coll.gameObject.GetComponent<HitByPlayer>().hasBeenHit();
-        }
-    }*/
-
     public void changeControl(bool isControllerMapping, InputDevice newController, MyCharacterActions newCharacterActions)
     {
         _characterActions = new MyCharacterActions(newCharacterActions);
@@ -81,7 +70,6 @@ public class CharacterHandlingController : MonoBehaviour
     public void attachWeaponToCharacter()
     {
         gameObject.transform.FindChild("Weapon").gameObject.SetActive(true);
-        //        gameObject.GetComponent<SpriteRenderer>().sprite = newWeapon;
     }
 
     private void controllerControls()

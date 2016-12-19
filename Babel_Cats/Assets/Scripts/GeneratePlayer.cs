@@ -14,6 +14,7 @@ public class GeneratePlayer : MonoBehaviour
     public GameObject _gameManager;
 
     public MyCharacterActions[] _characterActions;
+    public CharacterClass[] _characterClass;
 
     void Start ()
     {
@@ -27,6 +28,7 @@ public class GeneratePlayer : MonoBehaviour
         Debug.Log("NbDevice : " + _nbDeviceConnected);
 
         _characterActions = new MyCharacterActions[_nbDeviceConnected];
+        _characterClass = new CharacterClass[_nbDeviceConnected];
         createCharacters();
     }
 	
@@ -43,7 +45,12 @@ public class GeneratePlayer : MonoBehaviour
             go[i] = Instantiate(_characterPrefabs[i]) as GameObject;
 
             _players[i] = go[i].GetComponent<CharacterHandlingController>();
+
             _players[i].GetComponent<SpriteRenderer>().sprite = _gameManager.GetComponent<GameSceneManager>()._characterSprite[i];
+            _players[i].gameObject.transform.FindChild("Weapon").GetComponent<SpriteRenderer>().sprite = _gameManager.GetComponent<GameSceneManager>()._catsWeaponSprite[i];
+
+            _characterClass[i] = new CharacterClass(_gameManager.GetComponent<GameSceneManager>()._charactersClass[i]);
+            _players[i]._charactersClass = new CharacterClass(_characterClass[i]);
 
             if (i != 0)
                 _players[i].transform.position = new Vector3(_players[i - 1].transform.position.x + _gapBetween,

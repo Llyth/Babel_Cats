@@ -13,6 +13,7 @@ public class SelectPlayer : MonoBehaviour
     Text _textPlayerReady;
     GameObject _characterSelectionObject;
     public Sprite[] _catsSprite = new Sprite[4];
+    public Sprite[] _catsWeaponSprite = new Sprite[4];
     public Sprite[] _hudSprite = new Sprite[2];
     public RuntimeAnimatorController[] _characterAnimationController = new RuntimeAnimatorController[2];
 
@@ -34,7 +35,6 @@ public class SelectPlayer : MonoBehaviour
                 _textPlayerReady =  GameObject.Find("Player" + (i + 1) + "Status").GetComponent<Text>();
 
                 _characterSelectionObject = GameObject.Find("Player" + (i + 1) + "CharacterSelection");
-                //                _characterSelectionObject.GetComponent<Image>().sprite = _catsSprite[0];
                 _characterSelectionObject.GetComponent<Image>().sprite = _hudSprite[0];
 
                 _devices[i] = InputManager.Devices[i];
@@ -47,7 +47,6 @@ public class SelectPlayer : MonoBehaviour
                 _textPlayerReady = GameObject.Find("Player" + (i + 1) + "Status").GetComponent<Text>();
 
                 _characterSelectionObject = GameObject.Find("Player" + (i + 1) + "CharacterSelection");
-//                _characterSelectionObject.GetComponent<Image>().sprite = _catsSprite[0];
                 _characterSelectionObject.GetComponent<Image>().sprite = _hudSprite[0];
 
                 _slotPlayer[i] = new SlotPlayer(i + 1, _textPlayerReady, _characterSelectionObject, _catsSprite, _hudSprite, _characterAnimationController);
@@ -113,7 +112,9 @@ public class SelectPlayer : MonoBehaviour
                 _gameManager.GetComponent<GameSceneManager>()._nbPlayerAvailable++;
                 _gameManager.GetComponent<GameSceneManager>()._characterActions[y] = new MyCharacterActions(_slotPlayer[i]._characterActions);
                 _gameManager.GetComponent<GameSceneManager>()._characterSprite[y] = _catsSprite[_slotPlayer[i]._characterSelectionIndex];
+                _gameManager.GetComponent<GameSceneManager>()._catsWeaponSprite[y] = _catsWeaponSprite[_slotPlayer[i]._characterSelectionIndex];
                 _gameManager.GetComponent<GameSceneManager>()._characterAnimationController[y] = _characterAnimationController[_slotPlayer[i]._characterSelectionIndex];
+                _gameManager.GetComponent<GameSceneManager>()._charactersClass[y] = new CharacterClass(_slotPlayer[i]._characterSelectionIndex);
                 y++;
             }
         }

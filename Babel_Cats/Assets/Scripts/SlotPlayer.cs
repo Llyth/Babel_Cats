@@ -116,9 +116,6 @@ public class SlotPlayer
                 else
                     _characterSelectionIndex = 3;
                 _characterSelectionObject.GetComponent<Image>().sprite = _catsSprite[_characterSelectionIndex];
-/*               _characterSelectionObject.GetComponent<Animator>().runtimeAnimatorController = _characterAnimationController[_characterSelectionIndex];
-                _characterSelectionObject.GetComponent<Animator>().SetBool("Ground", false);
-                _characterSelectionObject.GetComponent<Animator>().Play("KimonoCatIdle");*/
                 return (true);
             }
 
@@ -129,9 +126,6 @@ public class SlotPlayer
                 else
                     _characterSelectionIndex = 0;
                 _characterSelectionObject.GetComponent<Image>().sprite = _catsSprite[_characterSelectionIndex];
-/*               _characterSelectionObject.GetComponent<Animator>().runtimeAnimatorController = _characterAnimationController[_characterSelectionIndex];
-                _characterSelectionObject.GetComponent<Animator>().SetBool("Ground", false);
-                _characterSelectionObject.GetComponent<Animator>().Play("KimonoCatIdle");*/
                 return (true);
             }
         }
