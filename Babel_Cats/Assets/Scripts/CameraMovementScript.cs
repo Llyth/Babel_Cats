@@ -94,7 +94,7 @@ public class CameraMovementScript : MonoBehaviour
     public IEnumerator StartTheGame()
     {
         yield return new WaitForSeconds(5.0f); // waits 2 seconds
-//        move = true;
+        move = true;
     }
 
     void Start()
